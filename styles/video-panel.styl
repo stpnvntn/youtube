@@ -1,0 +1,100 @@
+.videos-container
+  position absolute
+  top 60px
+  left 50%
+  transform translateX(-50%)
+  height 460px
+  overflow hidden
+  width 320px
+
+  @media (min-width: tablet-query)
+    width 640px
+
+  @media (min-width: laptop-query)
+    width 960px
+
+  @media (min-width: laptop-large-query)
+    width 1280px
+
+  .videos-wrapper
+    transform: translate3d(0,0,0);
+    &.-animated
+      transition all 200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    
+  .message
+    position absolute
+    height 100px
+    width 285px 
+    margin 10px 17.5px
+    text-align center
+
+  .video
+    font-size 12px
+    position relative
+    height 440px
+    width 285px
+    box-shadow 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08)
+    transition box-shadow 200ms cubic-bezier(0.4, 0.0, 0.2, 1)
+    float left
+    margin 10px 17.5px
+    white-space normal
+    &:hover
+      box-shadow 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08)
+
+    .video-panel-thumb
+      height 214px
+      text-align center
+      img
+        height 100%
+
+    .video-panel-header
+      max-height 70px
+      padding 5px
+      box-sizing border-box
+      border-bottom 1px dashed youtube-light-color
+      a
+        text-decoration none
+        display block
+        &.title
+          font-size 19px
+          font-weight 500
+          display -webkit-box
+          -webkit-line-clamp 2
+          -webkit-box-orient vertical
+          overflow hidden
+        &.chanel
+          margin-top 5px
+          font-size 15px
+          text-align right
+
+
+    .video-panel-body
+      padding 10px
+      height 100px
+      box-sizing border-box
+      overflow hidden
+      p
+        display -webkit-box
+        font-size 16px
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical; 
+        overflow hidden
+
+    .video-panel-footer
+      position absolute
+      bottom 0
+      padding 5px
+      height 46px
+      line-height 46px
+      background clip-section-color
+      font-size 0
+      .date
+        display inline-block
+        width 150px
+        font-size 15px
+      .views
+        display inline-block
+        width 125px
+        font-size 19px
+        color text-secondary-color
+        text-align right
