@@ -1,0 +1,29 @@
+.control-dots-wrapper
+  position absolute
+  height 48px
+  width 285px
+  top 511px
+  left 50%
+  transform translate(-50%, 0);
+  text-align center
+  overflow hidden
+
+  .control-dots
+    display inline-block
+    .control-dot
+      height 30px
+      width 30px
+      line-height 26px
+      margin 9px 13px
+      display inline-block
+      background youtube-color
+      border 3px solid youtube-color
+      color main-background-color
+      border-radius 50%
+      cursor pointer
+      box-sizing border-box
+      &:hover
+        background youtube-light-color
+        animation dot-jump 500ms
+      &.-selected
+        border-color secondary-background-color
