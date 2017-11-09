@@ -1,8 +1,4 @@
-import { 
-        searchHandler,
-        firstSearchHandler,
-} from '../handlers/search-hendlers';
-
+import { searchHandler, firstSearchHandler } from '../handlers/search-hendlers';
 
 export const renderSearch = function() {
     const searchNode = document.createElement('div');
@@ -24,4 +20,4 @@ export const renderSearch = function() {
     searchNode.addEventListener('click', searchHandler);
 
     document.body.appendChild(searchNode);
-}
+};

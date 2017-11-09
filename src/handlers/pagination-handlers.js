@@ -6,9 +6,9 @@ import { getNewVideos } from '../utils/search';
 export const dotClickHandler = function(e) {
     if (e.target.tagName === 'LI') {
         const store = Store.getInstance();
-        const dotList = e.currentTarget;    
+        const dotList = e.currentTarget;
         const dot = e.target;
-        const position = Array.prototype.findIndex.call(dotList.children, (element) => {
+        const position = Array.prototype.findIndex.call(dotList.children, element => {
             return element === dot;
         });
         store.currentPage = position;
@@ -20,4 +20,4 @@ export const dotClickHandler = function(e) {
             });
         }
     }
-}
+};

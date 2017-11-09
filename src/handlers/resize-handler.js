@@ -1,27 +1,23 @@
-
 import { Store } from '../utils/Store';
-import { 
-    clearDotList,
-    renderDots,
- } from '../modules/pagination';
+import { clearDotList, renderDots } from '../modules/pagination';
 import { turnPage } from '../modules/video-panel';
 
 const store = Store.getInstance();
 
-const mobile = window.matchMedia("(max-width: 639px)");
-const tablet = window.matchMedia("(min-width: 641px) and (max-width: 960px)");
-const laptop = window.matchMedia("(min-width: 961px) and (max-width: 1280px)");
-const laptopLarge = window.matchMedia("(min-width: 1281px)");
+const mobile = window.matchMedia('(max-width: 639px)');
+const tablet = window.matchMedia('(min-width: 641px) and (max-width: 960px)');
+const laptop = window.matchMedia('(min-width: 961px) and (max-width: 1280px)');
+const laptopLarge = window.matchMedia('(min-width: 1281px)');
 
 function setNewPage(newVPP) {
     if (!store.lastSearchQuery) {
         store.videosPerPage = newVPP;
         return;
     }
-    const videoPosition = ((store.currentPage + 1) * store.videosPerPage) - (store.videosPerPage - 1);
-    const newPage =  Math.ceil(videoPosition / newVPP) - 1;
+    const videoPosition = (store.currentPage + 1) * store.videosPerPage - (store.videosPerPage - 1);
+    const newPage = Math.ceil(videoPosition / newVPP) - 1;
     store.currentPage = newPage;
-    store.pagesCount = Math.ceil(((store.pagesCount + 1) * store.videosPerPage) / newVPP) - 1;
+    store.pagesCount = Math.ceil((store.pagesCount + 1) * store.videosPerPage / newVPP) - 1;
     clearDotList();
     renderDots(store.pagesCount + 1);
     turnPage(newPage, newVPP);

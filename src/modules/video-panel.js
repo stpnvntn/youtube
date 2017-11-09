@@ -1,7 +1,4 @@
-import { VIDEO_WIDTH,
-        NOTHING_TO_SHOW_TEMPALTE,
-        ANIMATED_PANEL,
-} from '../utils/constants';
+import { VIDEO_WIDTH, NOTHING_TO_SHOW_TEMPALTE, ANIMATED_PANEL } from '../utils/constants';
 import * as handlers from '../handlers/swipe-handlers';
 import { getTranslate3dString } from '../utils/translate3d';
 import { setCurrentDot } from './pagination';
@@ -16,7 +13,8 @@ const getPanelTemplate = function(data) {
             <img src="${data.snippet.thumbnails.high.url}">
         </div>
         <div class="video-panel-header">
-            <a href="https://www.youtube.com/watch?v=${data.id}" class="title">${data.snippet.title}</a>
+            <a href="https://www.youtube.com/watch?v=${data.id}" class="title">${data.snippet
+        .title}</a>
             <a href="https://www.youtube.com/" class="chanel">by ${data.snippet.channelTitle}</a>
         </div>
         <div class="video-panel-body">
@@ -30,16 +28,16 @@ const getPanelTemplate = function(data) {
                 ${parseInt(data.statistics.viewCount).toLocaleString()}
             </span>
         </div>`;
-}
+};
 
-export const renderVideoPanels = function (videos) {
+export const renderVideoPanels = function(videos) {
     let tempNode;
     if (!videos.length) {
         noFound();
         return;
     }
     tempNode = document.createDocumentFragment();
-    currentWrapperWidth += (videos.length * VIDEO_WIDTH);
+    currentWrapperWidth += videos.length * VIDEO_WIDTH;
     for (let i = 0; i < videos.length; i++) {
         tempNode.appendChild(createVideo(videos[i]));
     }
@@ -47,14 +45,14 @@ export const renderVideoPanels = function (videos) {
     videosWrapper.appendChild(tempNode);
 };
 
-export const createVideo = function (data) {
+export const createVideo = function(data) {
     const videoPanel = document.createElement('div');
     videoPanel.innerHTML = getPanelTemplate(data);
     videoPanel.classList.add('video');
     return videoPanel;
 };
 
-export const renderVideosWrapper = function () {
+export const renderVideosWrapper = function() {
     const videosContainer = document.createElement('div');
     videosWrapper = document.createElement('div');
     videosContainer.classList.add('videos-container');
@@ -64,7 +62,9 @@ export const renderVideosWrapper = function () {
 
     videosContainer.addEventListener('mousedown', handlers.startSwipeHendler);
     videosContainer.addEventListener('mouseup', handlers.stopSwipeHendler);
-    videosContainer.addEventListener('touchstart', handlers.startTouchSwipeHendler, { passive: true });
+    videosContainer.addEventListener('touchstart', handlers.startTouchSwipeHendler, {
+        passive: true,
+    });
     videosContainer.addEventListener('touchmove', handlers.touchMoveHandler, { passive: true });
     videosContainer.addEventListener('touchend', handlers.stopTouchSwipeHendler, { passive: true });
 
@@ -83,17 +83,17 @@ export const clearVideosWrapper = function() {
 
 export const noFound = function() {
     videosWrapper.innerHTML = NOTHING_TO_SHOW_TEMPALTE;
-}
+};
 
 export const turnPage = function(pageNumber, videosPerPage) {
     videosWrapper.classList.add(ANIMATED_PANEL);
     currentWrapperPosition = -VIDEO_WIDTH * videosPerPage * pageNumber;
-    videosWrapper.style.transform = getTranslate3dString([currentWrapperPosition, 0 ,0]);
+    videosWrapper.style.transform = getTranslate3dString([currentWrapperPosition, 0, 0]);
     setCurrentDot(pageNumber);
-}
+};
 
 export const movePage = function(delta) {
     videosWrapper.classList.remove(ANIMATED_PANEL);
     currentWrapperPosition += delta;
-    videosWrapper.style.transform = getTranslate3dString([currentWrapperPosition, 0 , 0]);
-}
+    videosWrapper.style.transform = getTranslate3dString([currentWrapperPosition, 0, 0]);
+};

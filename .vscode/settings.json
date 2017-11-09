@@ -1,0 +1,19 @@
+{
+    "editor.insertSpaces": true,
+    "files.eol": "\n",
+    "search.exclude": {
+        ".vscode": true,
+        "dist": true,
+        "node_modules": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "prettier.typescriptEnable": ["typescript"],
+    "prettier.useTabs": false,
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 100,
+    "editor.formatOnSave": true
+}

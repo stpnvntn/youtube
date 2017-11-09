@@ -13,14 +13,14 @@ export const Store = (function() {
             pagesCount,
             videosPerPage,
         };
-    };
+    }
     return {
         getInstance: function() {
-            if ( !instance ) {
+            if (!instance) {
                 instance = init();
                 window.store = instance;
             }
             return instance;
-        }
-    }
+        },
+    };
 })();
