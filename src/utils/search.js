@@ -1,7 +1,6 @@
-import { Store } from '../utils/Store';
-import { API_KEY } from '../utils/constants';
-import { renderVideoPanels } from '../modules/video-panel';
-import { renderDots } from '../modules/pagination';
+import { Store } from '../utils';
+import { API_KEY } from '../constants';
+import { renderVideoPanels, renderDots } from '../modules';
 
 const getSearchLink = function(lastSearchQuery, nextPageToken) {
     return `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=12&type=video&q=${lastSearchQuery}&key=${API_KEY}&pageToken=${nextPageToken}`;
@@ -27,7 +26,7 @@ const search = function() {
         .then(data => {
             let commaSeparatedVideoIds = '';
             store.nextPageToken = data.nextPageToken;
-            data.items.forEach((cur, position, array) => {
+            data.items.forEach(cur => {
                 commaSeparatedVideoIds += `,${cur.id.videoId}`;
             });
             return fetch(getVideoListLink(commaSeparatedVideoIds));

@@ -1,6 +1,6 @@
-import { VIDEO_WIDTH, NOTHING_TO_SHOW_TEMPALTE, ANIMATED_PANEL } from '../utils/constants';
-import * as handlers from '../handlers/swipe-handlers';
-import { getTranslate3dString } from '../utils/translate3d';
+import { VIDEO_WIDTH, NOTHING_TO_SHOW_TEMPALTE, ANIMATED_PANEL } from '../constants';
+import * as handlers from '../handlers';
+import { getTranslate3dString } from '../utils';
 import { setCurrentDot } from './pagination';
 
 let videosWrapper;
@@ -31,12 +31,11 @@ const getPanelTemplate = function(data) {
 };
 
 export const renderVideoPanels = function(videos) {
-    let tempNode;
     if (!videos.length) {
         noFound();
         return;
     }
-    tempNode = document.createDocumentFragment();
+    const tempNode = document.createDocumentFragment();
     currentWrapperWidth += videos.length * VIDEO_WIDTH;
     for (let i = 0; i < videos.length; i++) {
         tempNode.appendChild(createVideo(videos[i]));

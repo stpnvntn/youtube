@@ -1,6 +1,5 @@
-import { Store } from '../utils/Store';
-import { clearDotList, renderDots } from '../modules/pagination';
-import { turnPage } from '../modules/video-panel';
+import { Store } from '../utils';
+import { clearDotList, renderDots, turnPage } from '../modules';
 
 const store = Store.getInstance();
 

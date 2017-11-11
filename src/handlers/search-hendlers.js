@@ -1,7 +1,11 @@
-import { renderVideosWrapper, clearVideosWrapper } from '../modules/video-panel';
-import { renderDotsWrapper, setCurrentDot, clearDotList } from '../modules/pagination';
-import { getNewVideos } from '../utils/search';
-import { Store } from '../utils/Store';
+import {
+    renderVideosWrapper,
+    clearVideosWrapper,
+    renderDotsWrapper,
+    setCurrentDot,
+    clearDotList,
+} from '../modules';
+import { getNewVideos, Store } from '../utils';
 
 export const searchHandler = function(e) {
     if (

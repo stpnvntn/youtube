@@ -1,6 +1,5 @@
-import { turnPage, movePage } from '../modules/video-panel';
-import { Store } from '../utils/Store';
-import { getNewVideos } from '../utils/search';
+import { turnPage, movePage } from '../modules';
+import { Store, getNewVideos } from '../utils';
 
 let pointerHorizontalPosition;
 let lastPointerPosition;
@@ -68,6 +67,6 @@ export const touchMoveHandler = function(e) {
     movePage(-currentDelta);
 };
 
-export const stopTouchSwipeHendler = function(e) {
+export const stopTouchSwipeHendler = function() {
     swipeDetecting(lastTouch.clientX);
 };

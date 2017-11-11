@@ -1,7 +1,5 @@
-import { setCurrentDot } from '../modules/pagination';
-import { turnPage } from '../modules/video-panel';
-import { Store } from '../utils/Store';
-import { getNewVideos } from '../utils/search';
+import { setCurrentDot, turnPage } from '../modules';
+import { Store, getNewVideos } from '../utils';
 
 export const dotClickHandler = function(e) {
     if (e.target.tagName === 'LI') {

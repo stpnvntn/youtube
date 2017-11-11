@@ -1,6 +1,6 @@
-import { DOT_WIDTH, SELECTED_DOT } from '../utils/constants';
-import { dotClickHandler } from '../handlers/pagination-handlers';
-import { getTranslate3dString } from '../utils/translate3d';
+import { DOT_WIDTH, SELECTED_DOT } from '../constants';
+import { dotClickHandler } from '../handlers';
+import { getTranslate3dString } from '../utils';
 
 let dotsList;
 let dotsWrapper;

@@ -1,4 +1,4 @@
-import { searchHandler, firstSearchHandler } from '../handlers/search-hendlers';
+import { searchHandler, firstSearchHandler } from '../handlers';
 
 export const renderSearch = function() {
     const searchNode = document.createElement('div');
